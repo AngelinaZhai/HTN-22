@@ -53,4 +53,10 @@ def similarity_score(s1, s2):
     else:
       return (1-spatial.distance.cosine(v1, v2))
 
+def assess_answer(s1, s2, threshold=0.6):
+    if(similarity_score(s1,s2) >= threshold):
+      return True
+    else:
+      return False
+
 # similarity_score('asdfsoifjaiwejofjwaeijfewlf sdfdfdf', 'kitten')
