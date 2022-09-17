@@ -15,6 +15,7 @@ import scipy
 from scipy import spatial
 import re
 
+#load glove library (send this to main.py maybe)
 glove = torchtext.vocab.GloVe(name='6B', dim=50)
 
 # def preprocess(s):
@@ -37,6 +38,7 @@ def get_vector(s):
           elements.append(glove[i])
       except:
         continue
+    # print (sum(elements))
     return sum(elements)
 
 def similarity_score(s1, s2):
@@ -46,11 +48,9 @@ def similarity_score(s1, s2):
       return 0
     elif ((v1 == None) or (v2 == None)):
       return 0
+    elif ((v1==0) or (v2==0)):
+      return 0
     else:
       return (1-spatial.distance.cosine(v1, v2))
 
-#glove['cat']
-
-# glove['poop']
-
-#similarity_score('', '')
+# similarity_score('asdfsoifjaiwejofjwaeijfewlf sdfdfdf', 'kitten')
