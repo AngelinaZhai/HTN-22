@@ -48,8 +48,8 @@ def similarity_score(s1, s2):
       return 0
     elif ((v1 == None) or (v2 == None)):
       return 0
-    elif ((v1==0) or (v2==0)):
-      return 0
+#    elif ((v1==0) or (v2==0)):
+#      return 0
     else:
       return (1-spatial.distance.cosine(v1, v2))
 
